@@ -1,0 +1,20 @@
+LAPORAN:
+https://docs.google.com/document/d/1sYLJXJgY2YmYV0n4yvvZFVo853cRZJipXQ-xfSInz_E/edit#
+
+CFG:
+https://docs.google.com/document/d/1pzsY0-WYxxnhudMG7GdC-vl9Bi8osgy_gV6i_XUuRfg/edit#
+
+LEXER:
+- kayanya bisa pake sentence.split()?
+- kalo mau per line bisa file.readlines()
+
+GRAMMAR CONVERTER:
+- bikin terima file
+- outputnya juga file
+
+PARSER:
+- bikin terima kalimat dalam txt
+- cocokin sama grammar converternya
+
+COMPILER:
+- bikin program utamanya
