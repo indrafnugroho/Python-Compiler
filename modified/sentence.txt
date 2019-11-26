@@ -1,1 +1,1 @@
-def A ( B ) :
+def A (A):
