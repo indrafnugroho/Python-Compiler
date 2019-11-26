@@ -56,7 +56,7 @@ class Parser:
 	        start_symbol = self.grammar[0][0]
 	        final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
 	        if not final_nodes:
-	        	print("Syntax error on line " + str(i + 1) + ":")
+	        	print("Syntax error on line " + ":")
 	        	print ("  " + self.inputline[i])
 	        	incorrect = True
 	        	break
