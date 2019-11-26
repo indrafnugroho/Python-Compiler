@@ -114,9 +114,13 @@ class Lexer(object):
             if tok is None: break
             yield tok
 
-def read_files_coba (filename) :
-    f = open(filename, "r")
-    return f.read()
+def read_files_input (filename) :
+    with open(filename, "r") as f :
+        return f.read()
+
+def write_files_output(name_out) :
+    with open(name_out, "w") as f :
+        f.write("%s" % output)
 
 if __name__ == '__main__':
     rules = [
@@ -150,7 +154,7 @@ if __name__ == '__main__':
         ('\d+',             'NUMBER'),
         ('[a-zA-Z_]\w+',    'IDENTIFIER'),
         # COMPARISON
-        (r'==|!=|>=|<=|>|<',   'COMPARISON'),
+        (r'==|!=|>=|<=|>|<|in|not in|is|is not',   'COMPARISON'),
         #ASSIGN
         ('=', 'ASSIGN'),     
         (r'\/\/=|\*\*=|\+=|\-=|\*=|\/=|\%=', 'ASSIGN'),
@@ -159,16 +163,20 @@ if __name__ == '__main__':
         # ETCS
         ('[:]',                 'COLON'),
         ('[.]',                 'DOT'),
-        ('\n',                'NEWLINE'),
+        (',',                   'COMMA'),
+        (r'\n',                'NEWLINE'),
+        ('\\\n',               'NEWLINE'),
         # PARENTHESIS
         ('[(]',              'LP'),
         ('[)]',              'RP'),
         ('\[',              'LSB'),
-        ('\]',              'RSB')
+        ('\]',              'RSB'),
+        ('[#]',             'COMMENT'),
+        ('\'\'\'',          'COMMENT_MULTILINE')
     ]
 
     lx = Lexer(rules, skip_whitespace=True)
-    ipt = read_files_coba("cobacoba.txt")
+    ipt = read_files_input("input1.txt")
     lx.input(ipt)
 
     output = ''
@@ -182,6 +190,6 @@ if __name__ == '__main__':
     except LexerError as err:
         print('LexerError at position %s' % err.pos)
 
-    print(output)
+    write_files_output('output1.txt')
 
-    # cyk = cyk_parser.Parser("grammar.txt","out.txt")
+    cyk = cyk_parser.Parser("output1.txt")
