@@ -114,6 +114,9 @@ class Lexer(object):
             if tok is None: break
             yield tok
 
+def read_files_coba (filename) :
+    f = open(filename, "r")
+    return f.read()
 
 if __name__ == '__main__':
     rules = [
@@ -146,63 +149,27 @@ if __name__ == '__main__':
         (r'not',             'COMPARE'),
         ('\d+',             'NUMBER'),
         ('[a-zA-Z_]\w+',    'IDENTIFIER'),
-        (r'==',                'COMPARE'),
-        ('[!=]',              'COMPARE'),
-        ('>',                 'COMPARE'),
-        ('<',                 'COMPARE'),
-        ('[>=]',              'COMPARE'),
-        ('[<=]',              'COMPARE'),        
-        (r"[+=]",              'ASSIGN'),
-        (r'[-=]',              'ASSIGN'),
-        ('[*=]',              'ASSIGN'),
-        ('[/=]',              'ASSIGN'),
-        ('[%=]',              'ASSIGN'),
-        ('[//=]',             'ASSIGN'),
-        ('[**=]',             'ASSIGN'),
         # COMPARISON
-        (r'==',                'COMPARE'),
-        ('[!=]',              'COMPARE'),
-        ('>',                 'COMPARE'),
-        ('<',                 'COMPARE'),
-        ('[>=]',              'COMPARE'),
-        ('[<=]',              'COMPARE'),
-                # ETCS
-        (':',                 'COLON'),
-        ('.',                 'DOT'),
+        (r'==|!=|>=|<=|>|<',   'COMPARISON'),
+        #ASSIGN
+        ('=', 'ASSIGN'),     
+        (r'\/\/=|\*\*=|\+=|\-=|\*=|\/=|\%=', 'ASSIGN'),
+        #ARITHMETIC
+        (r'[+]|[-]|[*]|[/]|[%]|\/\/|\*\*', 'ARITHMETIC'),
+        # ETCS
+        ('[:]',                 'COLON'),
+        ('[.]',                 'DOT'),
         ('\n',                'NEWLINE'),
-        # ARITHMETIC
-        ('\+',              'ARITHMETIC'),
-        ('\-',              'ARITHMETIC'),
-        ('\*',              'ARITHMETIC'),
-        ('\/',              'ARITHMETIC'),
-        ('%',               'ARITHMETIC'),
-        ('//]',            'ARITHMETIC'),
-        ('[**]',            'ARITHMETIC'),
         # PARENTHESIS
-        ('\(',              'LP'),
-        ('\)',              'RP'),
+        ('[(]',              'LP'),
+        ('[)]',              'RP'),
         ('\[',              'LSB'),
-        ('\]',              'RSB'),
-        # ASSIGNMENT
-        # ('=',                 'ASSIGN'),
+        ('\]',              'RSB')
     ]
 
     lx = Lexer(rules, skip_whitespace=True)
-    lx.input('''
-    def get_rule_category:
-    rule_product = rule[PRODUCT_KEY]
-    if len(rule_product) == 0:
-        return EPSILON_RULE_KEY
-    elif len(rule_product) == 1:
-        if rule_product[0].islower:
-            return TERMINAL_RULE_KEY
-        else:
-            return UNARY_RULE_KEY
-    elif len(rule_product) == 2:
-        return BINARY_RULE_KEY
-    else:
-        return N_ARIES_RULE_KEY
-    ''')
+    ipt = read_files_coba("cobacoba.txt")
+    lx.input(ipt)
 
     output = ''
     try:
@@ -211,10 +178,10 @@ if __name__ == '__main__':
                 output = output
             else:
                 output += str(tok) + ' '
-            print(tok)
+            #print(tok)
     except LexerError as err:
         print('LexerError at position %s' % err.pos)
 
     print(output)
 
-    cyk = cyk_parser.Parser("grammar.txt","out.txt")
+    # cyk = cyk_parser.Parser("grammar.txt","out.txt")

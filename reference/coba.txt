@@ -1,0 +1,6 @@
+ini contoh line 1
+
+ini contoh line 2
+
+ini contoh line 3
+
