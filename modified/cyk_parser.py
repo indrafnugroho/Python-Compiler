@@ -41,7 +41,7 @@ class Parser:
         """
         self.parse_table = None
         self.prods = {}
-        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("input1.txt"))
+        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammar1.txt"))
 
         with open('CNF.txt', 'w') as cnf:
             for item in self.grammar:
@@ -54,8 +54,8 @@ class Parser:
 
         incorrect = False
         for i in range(len(self.inputline)):
-            self.input = re.findall(r"[\w']+|[.,():=]", self.inputline[i])
-            # self.input = self.inputline[i].split()
+            #self.input = re.findall(r"[\w']+|[.,():=]", self.inputline[i])
+            self.input = self.inputline[i].split()
             print(self.input)
             self.parse()
             # self.print_tree2()
