@@ -1,1 +1,1 @@
-def A (A):
+from A import B as C

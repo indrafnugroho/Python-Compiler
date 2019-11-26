@@ -41,7 +41,7 @@ class Parser:
         """
         self.parse_table = None
         self.prods = {}
-        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammar.txt"))
+        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammar_new.txt"))
 
         with open('CNF.txt', 'w') as cnf:
             for item in self.grammar:

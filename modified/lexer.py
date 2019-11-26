@@ -216,3 +216,5 @@ if __name__ == '__main__':
         print('LexerError at position %s' % err.pos)
 
     print(output)
+
+    cyk = cyk_parser.Parser("grammar.txt","out.txt")
