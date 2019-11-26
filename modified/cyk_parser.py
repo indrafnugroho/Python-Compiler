@@ -1,7 +1,7 @@
 import os.path
 import argparse
 import grammar_converter
-
+import re
 
 class Node:
     """
@@ -50,16 +50,18 @@ class Parser:
 
         incorrect = False
         for i in range(len(self.inputline)):
-	        self.input = self.inputline[i].split()
-	        self.parse()
-	        # self.print_tree2()
-	        start_symbol = self.grammar[0][0]
-	        final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
-	        if not final_nodes:
-	        	print("Syntax error on line " + ":")
-	        	print ("  " + self.inputline[i])
-	        	incorrect = True
-	        	break
+            self.input = re.findall(r"[\w']+|[.,():]", self.inputline[i])
+            # self.input = self.inputline[i].split()
+            print(self.input)
+            self.parse()
+            # self.print_tree2()
+            start_symbol = self.grammar[0][0]
+            final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
+            if not final_nodes:
+            	print("Syntax error on line " + ":")
+            	print ("  " + self.inputline[i])
+            	incorrect = True
+            	break
         if not incorrect:
             print("Accepted")
 
