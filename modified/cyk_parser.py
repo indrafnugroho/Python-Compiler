@@ -42,7 +42,11 @@ class Parser:
         self.parse_table = None
         self.prods = {}
         self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammar.txt"))
-        
+
+        with open('CNF.txt', 'w') as cnf:
+            for item in self.grammar:
+                cnf.write("%s\n" % item)
+
         # self.__call__(sentence)
         with open(sentence) as inp:
 	        self.inputline = [line.strip() for line in inp if line.strip()]
@@ -50,7 +54,7 @@ class Parser:
 
         incorrect = False
         for i in range(len(self.inputline)):
-            self.input = re.findall(r"[\w']+|[.,():]", self.inputline[i])
+            self.input = re.findall(r"[\w']+|[.,():=]", self.inputline[i])
             # self.input = self.inputline[i].split()
             print(self.input)
             self.parse()
@@ -58,7 +62,7 @@ class Parser:
             start_symbol = self.grammar[0][0]
             final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
             if not final_nodes:
-            	print("Syntax error on line " + ":")
+            	print("Syntax error on:")
             	print ("  " + self.inputline[i])
             	incorrect = True
             	break

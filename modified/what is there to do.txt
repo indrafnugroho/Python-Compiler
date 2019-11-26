@@ -4,17 +4,12 @@ https://docs.google.com/document/d/1sYLJXJgY2YmYV0n4yvvZFVo853cRZJipXQ-xfSInz_E/
 CFG:
 https://docs.google.com/document/d/1pzsY0-WYxxnhudMG7GdC-vl9Bi8osgy_gV6i_XUuRfg/edit#
 
-LEXER:
-- kayanya bisa pake sentence.split()?
-- kalo mau per line bisa file.readlines()
+- Put the text you want to test in input_file.txt
 
-GRAMMAR CONVERTER:
-- bikin terima file
-- outputnya juga file
+- Put the grammar in grammar.txt
 
-PARSER:
-- bikin terima kalimat dalam txt
-- cocokin sama grammar converternya
+- Include cyk_parser in lexer.py
 
-COMPILER:
-- bikin program utamanya
+- Make a variable to contain the tokenized output from the lexer
+
+- Call the parser with the variable you've made before as one of the parameter.
