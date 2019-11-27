@@ -41,7 +41,7 @@ class Parser:
         """
         self.parse_table = None
         self.prods = {}
-        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammar1.txt"))
+        self.grammar = grammar_converter.convert_grammar(grammar_converter.read_grammar("grammarrev.txt"))
 
         with open('CNF.txt', 'w') as cnf:
             for item in self.grammar:
@@ -61,6 +61,7 @@ class Parser:
             # self.print_tree2()
             start_symbol = self.grammar[0][0]
             final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
+            print(final_nodes)
             if not final_nodes:
             	print("Syntax error on:")
             	print ("  " + self.inputline[i])
