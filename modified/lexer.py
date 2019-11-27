@@ -11,6 +11,7 @@
 import re
 import sys
 import cyk_parser
+import argparse
 
 
 class Token(object):
@@ -144,8 +145,8 @@ if __name__ == '__main__':
         (r'from',            'FROM'),
         (r'if',              'IF'),
         (r'import',          'IMPORT'),
-        (r'in',              'IN'),
-        (r'^is$',              'IS'),
+        (r'in$',              'IN'),
+        (r'is$',              'IS'),
         (r'not',             'NOT'),
         (r'or',              'OR'),
         (r'pass',            'PASS'),
@@ -153,7 +154,7 @@ if __name__ == '__main__':
         (r'return',          'RETURN'),
         (r'while',           'WHILE'),
         (r'with',            'WITH'),
-        (r'is',              'COMPARE'),
+        (r'is$',              'COMPARE'),
         (r'not',             'COMPARE'),
         ('\d+',             'NUMBER'),
         ('[a-zA-Z_]\w*',    'IDENTIFIER'),
@@ -179,7 +180,9 @@ if __name__ == '__main__':
     ]
 
     lx = Lexer(rules, skip_whitespace=True)
-    ipt = read_files_input("input1.txt")
+    filename = input('File: ')
+
+    ipt = read_files_input(filename)
     lx.input(ipt)
 
     output = ''
@@ -193,5 +196,7 @@ if __name__ == '__main__':
     except LexerError as err:
         print('LexerError at position %s' % err.pos)
 
-    write_files_output('output1.txt')
-    cyk = cyk_parser.Parser("output1.txt")
+    with open('outputfile.txt', 'w') as outfile:
+        outfile.write(output.replace("NEWLINE","\n"))
+
+    cyk = cyk_parser.Parser("outputfile.txt")

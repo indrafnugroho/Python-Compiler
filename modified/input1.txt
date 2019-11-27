@@ -1,7 +1,13 @@
 def get_rule_category(rule):
-    
-    4rule_product = rule[PRODUCT_KEY]
-    
-    4rule_product = 1
-
-    return 4rule_product
+    rule_product = rule[PRODUCT_KEY]
+    if len(rule_product) == 0:
+        return EPSILON_RULE_KEY
+    elif len(rule_product) == 1:
+        if rule_product[0]:
+            return TERMINAL_RULE_KEY
+        else:
+            return UNARY_RULE_KEY
+    elif len(rule_product) == 2:
+        return BINARY_RULE_KEY
+    else:
+        return N_ARIES_RULE_KEY

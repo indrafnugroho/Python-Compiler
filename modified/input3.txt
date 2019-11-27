@@ -3,7 +3,7 @@ def get_rule_category(rule) :
     if len(rule_product) == 0:
         return EPSILON_RULE_KEY
     elif len(rule_product) == 1:
-        if rule_product[0].islower:
+        if rule_product[0]:
             return TERMINAL_RULE_KEY
         else:
             return UNARY_RULE_KEY
