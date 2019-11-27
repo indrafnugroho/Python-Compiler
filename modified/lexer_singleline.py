@@ -11,6 +11,7 @@
 import re
 import sys
 import cyk_parser
+import argparse
 
 
 class Token(object):
@@ -145,7 +146,7 @@ if __name__ == '__main__':
         (r'if',              'IF'),
         (r'import',          'IMPORT'),
         (r'in',              'IN'),
-        (r'is',              'IS'),
+        (r'is$',              'IS'),
         (r'not',             'NOT'),
         (r'or',              'OR'),
         (r'pass',            'PASS'),
@@ -153,7 +154,7 @@ if __name__ == '__main__':
         (r'return',          'RETURN'),
         (r'while',           'WHILE'),
         (r'with',            'WITH'),
-        (r'is',              'COMPARE'),
+        (r'is$',              'COMPARE'),
         (r'not',             'COMPARE'),
         ('\d+',             'NUMBER'),
         ('[a-zA-Z_]\w*',    'IDENTIFIER'),
@@ -179,7 +180,7 @@ if __name__ == '__main__':
     ]
 
     lx = Lexer(rules, skip_whitespace=True)
-    ipt = read_files_input("input1.txt")
+    ipt = read_files_input("inputfile.txt")
     lx.input(ipt)
 
     output = ''
@@ -196,4 +197,4 @@ if __name__ == '__main__':
     with open('output2.txt', 'w') as outfile:
         outfile.write(output.replace("NEWLINE","\n"))
 
-    cyk = cyk_parser.Parser("output2.txt")
+    cyk = cyk_parser.Parser("outputfile.txt")

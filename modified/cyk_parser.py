@@ -56,12 +56,12 @@ class Parser:
         for i in range(len(self.inputline)):
             #self.input = re.findall(r"[\w']+|[.,():=]", self.inputline[i])
             self.input = self.inputline[i].split()
-            print(self.input)
+            # print(self.input)
             self.parse()
             # self.print_tree2()
             start_symbol = self.grammar[0][0]
             final_nodes = [n for n in self.parse_table[-1][0] if n.symbol == start_symbol]
-            print(final_nodes)
+            # print(final_nodes)
             if not final_nodes:
             	print("Syntax error on:")
             	print ("  " + self.inputline[i])

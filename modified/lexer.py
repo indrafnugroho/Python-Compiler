@@ -145,7 +145,7 @@ if __name__ == '__main__':
         (r'if',              'IF'),
         (r'import',          'IMPORT'),
         (r'in',              'IN'),
-        (r'is',              'IS'),
+        (r'^is$',              'IS'),
         (r'not',             'NOT'),
         (r'or',              'OR'),
         (r'pass',            'PASS'),
