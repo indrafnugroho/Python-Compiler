@@ -193,5 +193,7 @@ if __name__ == '__main__':
     except LexerError as err:
         print('LexerError at position %s' % err.pos)
 
-    write_files_output('output1.txt')
-    cyk = cyk_parser.Parser("output1.txt")
+    with open('output2.txt', 'w') as outfile:
+        outfile.write(output.replace("NEWLINE","\n"))
+
+    cyk = cyk_parser.Parser("output2.txt")
