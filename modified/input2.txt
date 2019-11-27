@@ -1,0 +1,3 @@
+# ini adalah komentar
+# kira-kira bisa dicompile ga ya
+# he
