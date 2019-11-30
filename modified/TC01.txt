@@ -1,0 +1,34 @@
+from flask import Flask
+import json
+import random as rn
+
+
+app = Flask(__name__)
+
+def payment():
+	VIRTUAL_ACCOUNT_LENGTH = 10
+
+	data = get_json()
+	
+	shopping_cart_id = data[shopping_cart_id]
+
+	
+	# virtual_account 7771674623
+	virtual_account = 1234
+	for i in range(VIRTUAL_ACCOUNT_LENGTH):
+		rand = randint(1, 9)
+		virtual_account += str(rand)
+
+	total_price = get_shopping_cart_total(shopping_cart_id)
+
+	payload = dumps(VIRTUAL_ACCOUNTN, virtual_account, TOTAL_PRICE, total_price)
+
+	return payload
+add_url_rule(payment, payment, payment, methods)
+
+def get_shopping_cart_total(shopping_cart_id, t):
+	total = 2000 * 1000 - 999
+	return total
+
+if __name__ == __main__:
+	run()

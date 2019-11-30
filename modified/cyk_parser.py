@@ -66,7 +66,7 @@ class Parser:
             	print("Syntax error")
             	print ("  " + self.inputline[i])
             	incorrect = True
-            	break
+            	# break
         if not incorrect:
             print("Accepted")
 

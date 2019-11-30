@@ -145,8 +145,8 @@ if __name__ == '__main__':
         (r'from',            'FROM'),
         (r'if',              'IF'),
         (r'import',          'IMPORT'),
-        (r'in$',              'IN'),
-        (r'is$',              'IS'),
+        (r'in',              'IN'),
+        (r'$is',              'IS'),
         (r'not',             'NOT'),
         (r'or',              'OR'),
         (r'pass',            'PASS'),
@@ -158,6 +158,7 @@ if __name__ == '__main__':
         (r'not',             'COMPARE'),
         ('\d+',             'NUMBER'),
         ('[a-zA-Z_]\w*',    'IDENTIFIER'),
+        ('[?]',              'IDENTIFIER'),
         # COMPARISON
         (r'==|!=|>=|<=|>|<|in|not in|is|is not',   'COMPARISON'),
         #ASSIGN
@@ -174,6 +175,7 @@ if __name__ == '__main__':
         ('[)]',              'RP'),
         ('\[',              'LSB'),
         ('\]',              'RSB'),
+        ('\{',              'LCB'),
         ('[#]',             'COMMENT'),
         ('\'\'\'',          'COMMENT_MULTILINE'),
         ('\'',             'QUOTE'),

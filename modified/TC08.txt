@@ -1,0 +1,23 @@
+
+if input1lower() == ya:
+	belajar = True
+else:
+	belajar = False
+	
+if input2lower() == ya:
+	deadliner = True
+else:
+	deadliner = False
+
+if belajar == True:
+	if deadliner == False:
+		tubes_selesai = True
+	else:
+		tubes_selesai = False
+else:
+	tubes_selesai = false
+	
+if tubes_selesai:
+	print(Hore)
+elif tubes_selesai == talse:
+	print(Yah)

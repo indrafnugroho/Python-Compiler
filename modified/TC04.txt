@@ -1,0 +1,20 @@
+def find_accuracy(y_predict, y_test):
+	for i in enumerate(y_test):
+		if y_clut:
+			temp = []
+		else:
+			temp = clut[y]
+			if y_predict_temp:
+				cluty = temp
+			else:
+				tempy_predict = temp 
+				cluty = temp
+	count_true_predict = 0
+	for key in clut:
+		cluster = [key]
+		dominan_label = 0
+		for key_2 in cluster:
+			if dominan_label < cluster[key]:
+				dominan_label = cluster[key_2]
+		count_true_predict += dominan_label
+	return(count_true_predict)

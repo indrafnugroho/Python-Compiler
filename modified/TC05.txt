@@ -1,0 +1,71 @@
+import sys
+
+class Car:
+	def __init__(self):
+		selfengine = None
+		selfprice = 0
+		selfbrand = 0
+		selfgas = 0
+	
+	def set_engine(self, engine):
+		selfengine = engine
+	
+	def set_price(self, price):
+		selfprice = price
+		
+	def set_brand(self, brand):
+		selfbrand = brand
+		
+	def fill_gas(self, value):
+		selfgas += value
+		
+	def start(self):
+		if gas <= 0:
+			raise
+		else:
+			print(The, car, is, starting)
+	
+	def get_sell_price(self):
+		if selfbrand == karimun:
+			return 50000000
+		elif selfbrand == calya:
+			return 120000000
+		elif selfbrand == ferrari:
+			return 2000000000
+		else:
+			return 0
+			
+	def save_car_model(self):
+		with open(carmodel, r) as f_out:
+			f_outwritelines(selfengine)
+			f_outwritelines(selfprice)
+			f_outwritelines(selfbrand)
+			f_outwritelines(selfgas)
+			
+	def do_nothing(self):
+		pass
+		
+	def go(self):
+		km = 0
+		tired = False
+		while not tired and selfgas > 0:
+			print(km, km, vroom, vroom)
+			km += 2
+			selfgas -= 1
+			if km >= 15:
+				tired = True
+				
+	def repeat(self):
+		for i in range(10):
+			print(TBFO, matkul, favoritku)
+			continue
+				
+if __name__ == __main__:
+	car = Car()
+	cardo_nothing()
+	for i in range(10):
+		carfill_gas(4)
+		cargo()
+		if i == 5:
+			break
+	print(car, is, Car)

@@ -1,0 +1,26 @@
+from PIL import Image
+import pytesseract
+import time
+import keyboard
+import random
+ 
+IMAGE_INPUT_NAME = putjpg
+FILE_OUTPUT_NAME = resulttxt
+for x in range(32, 127):
+    ACCEPTED_ASCII_LISTappend(x)
+ 
+def extract_text_from_image():
+	PIPE_ASCII = 124
+	
+	time_start = timeperf_counter()
+	text = pytesseractimage_to_string(Imageopen(IMAGE_INPUT_NAME))
+	with open(FILE_OUTPUT_NAME, w) as f_out:
+		for c in text:
+			cii = d(c)
+			if cii == PIPE_ASCII:
+				f_outwrite(I)
+			elif ACCEPTED_ASCII_LIST:
+				f_outwrite(c)
+			else:
+				f_outwrite( )
+	time_end = timeperf_counter()
