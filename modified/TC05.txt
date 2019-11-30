@@ -2,22 +2,22 @@ import sys
 
 class Car:
 	def __init__(self):
-		selfengine = None
-		selfprice = 0
-		selfbrand = 0
-		selfgas = 0
+		self.engine = None
+		self.price = 0
+		self.brand = 0
+		self.gas = 0
 	
 	def set_engine(self, engine):
-		selfengine = engine
+		self.engine = engine
 	
 	def set_price(self, price):
-		selfprice = price
+		self.price = price
 		
 	def set_brand(self, brand):
-		selfbrand = brand
+		self.brand = brand
 		
 	def fill_gas(self, value):
-		selfgas += value
+		self.gas += value
 		
 	def start(self):
 		if gas <= 0:
@@ -26,21 +26,21 @@ class Car:
 			print(The, car, is, starting)
 	
 	def get_sell_price(self):
-		if selfbrand == karimun:
+		if self.brand == karimun:
 			return 50000000
-		elif selfbrand == calya:
+		elif self.brand == calya:
 			return 120000000
-		elif selfbrand == ferrari:
+		elif self.brand == ferrari:
 			return 2000000000
 		else:
 			return 0
 			
 	def save_car_model(self):
 		with open(carmodel, r) as f_out:
-			f_outwritelines(selfengine)
-			f_outwritelines(selfprice)
-			f_outwritelines(selfbrand)
-			f_outwritelines(selfgas)
+			f_out.writelines(selfengine)
+			f_out.writelines(selfprice)
+			f_out.writelines(selfbrand)
+			f_out.writelines(selfgas)
 			
 	def do_nothing(self):
 		pass
@@ -51,7 +51,7 @@ class Car:
 		while not tired and selfgas > 0:
 			print(km, km, vroom, vroom)
 			km += 2
-			selfgas -= 1
+			self.gas -= 1
 			if km >= 15:
 				tired = True
 				
@@ -62,10 +62,10 @@ class Car:
 				
 if __name__ == __main__:
 	car = Car()
-	cardo_nothing()
+	car.do_nothing()
 	for i in range(10):
-		carfill_gas(4)
-		cargo()
+		car.fill_gas(4)
+		car.go()
 		if i == 5:
 			break
 	print(car, is, Car)
